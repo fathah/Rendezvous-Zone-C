@@ -41,7 +41,6 @@
     <b style="color:#006266;">Sync Team Info</b>: To update team name and other information. <br>
     <b style="color:#8e44ad;">Sync Group</b>: To update team score. <br>
     <b style="color:#27ae60;">Sync Data</b>: To update individual scores, results & all other data. <br>
-    <b style="color:#0D6EFD;">Add Feed</b>: To send notifications to the students. <br>
 </section>
 
 <a onclick="syncTeamInfo()">
@@ -57,12 +56,7 @@ Sync Group Score</div>
 </a>
 
 
-<a href="addFeed.php">
-<div class="floatingLeft">
-<img src="../img/add_result.png" style="margin-right: 4px;" width="25px" alt="">
- Add Feed
-</div>
-</a>
+
 
 
 <!-- Sync Data -->
