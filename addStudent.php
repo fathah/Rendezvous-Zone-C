@@ -87,7 +87,14 @@ if($section=="jr"){
 <!-- Campus Name -->
 <select class="form-select" aria-label="Campus" name="campus" id="campus" required>
   <option selected disabled>Campus</option>
-  <option value="mnc">Madeenathunnoor</option>
+  <option value="mir">Imam Rabbani Kanthapuram</option>
+  <option value="bin">Baithul Izza Narikkuni</option>
+  <option value="msm">Muassasa Mananthavadi</option>
+  <option value="dqm">Darul Quran Muzhippoth</option>
+  <option value="jmc">Jamalullaily Chelari</option>
+
+
+
 </select> <br>
 <!-- Group Name -->
 <select class="form-select" aria-label="Section" name="section" id="section" required>
