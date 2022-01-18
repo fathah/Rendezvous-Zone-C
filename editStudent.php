@@ -58,19 +58,19 @@ $id = mysqli_real_escape_string($conn, $_GET['id']);
 </div>
 <!-- Campus Name -->
 <select class="form-select" aria-label="Campus"  name="campus" id="campus" required>
-  <option  <?php if($row['campus']==""){echo "selected";}?>>Campus</option>
+  <option  value=""  <?php if($row['campus']==""){echo "selected";}?>>Campus</option>
   <option value="mnc"  <?php if($row['campus']=="mnc"){echo "selected";}?>>Madeenathunnoor</option>
 </select> <br>
 <!-- Group Name -->
 <select class="form-select" aria-label="Section"  name="section" id="section" required>
-  <option  <?php if($row['section']==""){echo "selected";}?>>Section</option>
+  <option   value="" <?php if($row['section']==""){echo "selected";}?>>Section</option>
   <option value="jr" <?php if($row['section']=="jr"){echo "selected";}?>>Junior</option>
   <option value="sr" <?php if($row['section']=="sr"){echo "selected";}?>>Senior</option>
 </select>
 <br>
 <!-- Section -->
 <select class="form-select" aria-label="Group" name="team" id="team" required>
-<option disabled <?php if($row['team']==""){echo "selected";}?>>Group</option> 
+<option  value="" disabled <?php if($row['team']==""){echo "selected";}?>>Group</option> 
 <?php 
 $grpSQL = "SELECT * FROM team";
 $grpRES = mysqli_query($conn, $grpSQL);
@@ -87,13 +87,23 @@ while($r = mysqli_fetch_assoc($grpRES)){
 <input type="number"  class="form-control"  value="<?php echo $row['chest']; ?>" name="chest" id="chest" placeholder="Chest Number" required>
 </div>
 <div class="input-group mb-3">
-<input type="text"  class="form-control"  value="<?php echo $row['card_no']; ?>" name="card" id="card" placeholder="Card Number" required>
+<input type="text"  class="form-control"  value="<?php echo $row['card_no']; ?>" name="card" id="card" placeholder="Card Number" >
 </div>
-<input type="submit" value="Update Student" name="submit"   class="btn btn-primary" style="float: right; margin-right:30px;">
+<div style="float: right; margin-right:10px;">
+<input type="submit" value="Update Student" name="submit"   class="btn btn-primary" >
+<button class="btn btn-danger"
+onclick="deleteStudent()">Delete Student</button>
+</div>
 
 
     </form>
 </div>
-
+<script>
+  function deleteStudent(){
+    if(confirm('Do you want to delete this student?')){
+      window.location.href='inc/deleteStudent.php?id=<?php echo $_GET['id']?>'
+  }
+}
+</script>
 </body>
 </html>
