@@ -50,7 +50,7 @@ if(isset($_POST['submit'])){
         <center><img src="../img/install.png" width="15%" alt="DB Error"></center> <br><br>
    <div style="margin:0 30%;text-align:left;">
    <?php echo $response; ?> <br>
-   <h2>Install Program List</h2> 
+   <h2>Import Program List</h2> 
    
     <p>
        
@@ -60,7 +60,7 @@ if(isset($_POST['submit'])){
     <br>
    <form action="" method="post">
        <input type="hidden" name="confirm">
-   <input type="submit" name="submit" value="Confirm & Install" class="btn btn-success"/>
+   <input type="submit" name="submit" value="Confirm & Import" class="btn btn-success"/>
    </form>
    </div>
     

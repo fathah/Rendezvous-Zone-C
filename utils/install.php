@@ -14,16 +14,15 @@
 
 include 'tableQuery.php';
 $response = "";
-
 $servername = "localhost";
 $username = "root";
 $password = "";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-// Check connection
-if ($conn->connect_error) {
-    $response = '<div class="alert alert-danger">Couldnt connect to XAMPP server. Please ensure that XAMPP is running & MySQL is started.</div>';
+// Create connectionection
+$connection = new mysqli($servername, $username, $password);
+// Check connectionection
+if ($connection->connect_error) {
+    $response = '<div class="alert alert-danger">Couldnt connectionect to XAMPP server. Please ensure that XAMPP is running & MySQL is started.</div>';
 }
 
 
@@ -32,16 +31,26 @@ if(isset($_POST['submit'])){
     
     // Create database
     $sql = "CREATE DATABASE rendezvous";
-    if ($conn->query($sql) == TRUE) {
-      
+    if ($connection->query($sql) == TRUE) {
+        $conn = new mysqli($servername, $username, $password, "rendezvous");
 
+        $createTableRes = mysqli_multi_query($conn, $createAllTables);
+        if($createTableRes){
+            $response = '<div class="alert alert-success">Database created successfully<br>
+            <button type="button" class="btn btn-dark mt-2" onclick="window.location.href=\'installPrograms.php\'">Import Program List</button>
+            </div>';
+            
+        
+        }else{
+            $response = '<div class="alert alert-danger">Database created successfully <br>But there is an issue in creating table. <br>'.$conn->error.'</div>';
+        }
 
-        $response = '<div class="alert alert-success">Database created successfully</div>';
+        
     } else {
-        $response = '<div class="alert alert-danger">Error creating database: ' . $conn->error.'</div>';
+        $response = '<div class="alert alert-danger">Error creating database: ' . $connection->error.'</div>';
     }
     
-    $conn->close();
+    $connection->close();
 }
 
 
